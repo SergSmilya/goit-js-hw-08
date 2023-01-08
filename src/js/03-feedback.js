@@ -49,8 +49,18 @@ function writeFormDataStart() {
   console.log(getValueLocalStorage);
   if (getValueLocalStorage) {
     const parseValueLocalStorage = JSON.parse(getValueLocalStorage);
+    console.log(parseValueLocalStorage);
 
-    refs.input.value = parseValueLocalStorage.email;
-    refs.texarea.value = parseValueLocalStorage.message;
+    if (parseValueLocalStorage.email === undefined) {
+      refs.input.value = '';
+    } else {
+      refs.input.value = parseValueLocalStorage.email;
+    }
+
+    if (parseValueLocalStorage.message === undefined) {
+      refs.input.message = '';
+    } else {
+      refs.texarea.value = parseValueLocalStorage.message;
+    }
   }
 }
